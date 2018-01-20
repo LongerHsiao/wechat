@@ -1,0 +1,9 @@
+{
+  "name": "WeChat API Component",
+  "version": "1.0.0",
+  "description": "微信接口组件文档",
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  }
+}

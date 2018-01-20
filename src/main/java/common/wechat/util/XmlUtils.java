@@ -26,7 +26,7 @@ import java.util.Map;
 public class XmlUtils {
     private static Logger logger = LoggerFactory.getLogger(XmlUtils.class);
 
-    public static String ObjectToXML(Object obj) {
+    public static String toXml(Object obj) {
         String result = null;
         try (ByteArrayOutputStream outputStream = new ByteArrayOutputStream()) {
             JAXBContext context = JAXBContext.newInstance(obj.getClass());
@@ -37,12 +37,12 @@ public class XmlUtils {
             marshaller.marshal(obj, outputStream);
             result = outputStream.toString("utf-8");
         } catch (Exception e) {
-            logger.error("<<======XmlUtils.ObjectToXML:", e);
+            logger.error("<<======XmlUtils.toXml:", e);
         }
         return result;
     }
 
-    public static Map<String, String> XMLToMap(InputStream is)
+    public static Map<String, String> xmlToMap(InputStream is)
             throws ParserConfigurationException, SAXException, IOException {
         Map<String, String> map = new HashMap<>();
         DocumentBuilder builder = DocumentBuilderFactory.newInstance().newDocumentBuilder();

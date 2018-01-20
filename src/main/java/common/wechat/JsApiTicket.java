@@ -4,16 +4,16 @@ package common.wechat;
  * @author LongerHsiao
  * @date 2018-01-13
  */
-public class JsTicket {
-    private JsTicket() {
+public class JsApiTicket {
+    private JsApiTicket() {
 
     }
 
     private static class JsTicketHolder {
-        public static final JsTicket INSTANCE = new JsTicket();
+        public static final JsApiTicket INSTANCE = new JsApiTicket();
     }
 
-    public static JsTicket getInstance() {
+    public static JsApiTicket getInstance() {
         return JsTicketHolder.INSTANCE;
     }
 

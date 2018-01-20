@@ -1,4 +1,4 @@
-package common.wechat;
+package common.wechat.message;
 
 /**
  * @author LongerHsiao

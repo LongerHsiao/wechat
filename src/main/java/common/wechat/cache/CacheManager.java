@@ -30,7 +30,7 @@ public final class CacheManager {
 
     private void init() {
         Properties config = ConfigBuilder.getInstance().init(WeChatPropertiesFile.filename);
-        if (config == null) {
+        if (config == null || config.isEmpty()) {
             return;
         }
         String host = config.getProperty("cacheHost");
@@ -42,7 +42,7 @@ public final class CacheManager {
         if (StringUtil.isEmpty(port)) {
             jedis = new Jedis(host);
         } else {
-            jedis = new Jedis(host, Integer.valueOf(port));
+            jedis = new Jedis(host, Integer.parseInt(port));
         }
         cacheOn = true;
     }
