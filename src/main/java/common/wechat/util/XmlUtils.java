@@ -37,7 +37,7 @@ public class XmlUtils {
             marshaller.marshal(obj, outputStream);
             result = outputStream.toString("utf-8");
         } catch (Exception e) {
-            logger.error("<<======XmlUtils.toXml:", e);
+            logger.error("<<======XmlUtils.toXml:", e.getMessage());
         }
         return result;
     }
