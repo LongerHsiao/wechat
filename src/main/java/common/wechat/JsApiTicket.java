@@ -10,7 +10,7 @@ public class JsApiTicket {
     }
 
     private static class JsTicketHolder {
-        public static final JsApiTicket INSTANCE = new JsApiTicket();
+        private static final JsApiTicket INSTANCE = new JsApiTicket();
     }
 
     public static JsApiTicket getInstance() {

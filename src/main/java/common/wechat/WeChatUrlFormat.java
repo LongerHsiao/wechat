@@ -7,7 +7,7 @@ import java.text.MessageFormat;
  * @date 2017-10-20
  */
 enum WeChatUrlFormat {
-    OAUTH_URL_USER_UNKNOW("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_base&state={2}#wechat_redirect"),
+    OAUTH_URL_USER_UNSUBSCRIBE("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_base&state={2}#wechat_redirect"),
 
     OAUTH_URL("https://open.weixin.qq.com/connect/oauth2/authorize?appid={0}&redirect_uri={1}&response_type=code&scope=snsapi_userinfo&state={2}#wechat_redirect"),
 

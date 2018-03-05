@@ -14,7 +14,12 @@ import java.io.IOException;
  * @date 2018-1-15
  */
 public class WeChatJsServlet extends HttpServlet {
-
+    /**
+     * @api WeChatJsServlet 2、微信js-sdk签名服务
+     * @apiGroup Servlet
+     * @apiName WeChatJsServlet
+     * @apiVersion 1.0.0
+     */
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         String url = req.getParameter("url");

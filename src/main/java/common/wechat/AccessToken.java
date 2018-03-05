@@ -10,7 +10,7 @@ class AccessToken {
     }
 
     private static class AccessTokenHolder {
-        public static final AccessToken INSTANCE = new AccessToken();
+        private static final AccessToken INSTANCE = new AccessToken();
     }
 
     public static AccessToken getInstance() {

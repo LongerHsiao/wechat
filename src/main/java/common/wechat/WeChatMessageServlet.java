@@ -3,7 +3,7 @@ package common.wechat;
 import com.alibaba.fastjson.JSONObject;
 import common.tools.StringUtil;
 import common.wechat.aes.AesException;
-import common.wechat.aes.WXBizMsgCrypt;
+import common.wechat.aes.BusinessCrypt;
 import common.wechat.util.ConfigBuilder;
 import common.wechat.util.XmlUtils;
 import org.slf4j.Logger;
@@ -63,8 +63,8 @@ public class WeChatMessageServlet extends HttpServlet {
             return;
         }
         try {
-            WXBizMsgCrypt wxBizMsgCrypt = new WXBizMsgCrypt(token, encodingAesKey, weChatAppId);
-            if (wxBizMsgCrypt.verifyUrl(signature, timestamp, nonce)) {
+            BusinessCrypt businessCrypt = new BusinessCrypt(token, encodingAesKey, weChatAppId);
+            if (businessCrypt.verifyUrl(signature, timestamp, nonce)) {
                 resp.getWriter().write(echoStr);
             }
         } catch (AesException e) {

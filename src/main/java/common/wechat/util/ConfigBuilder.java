@@ -13,7 +13,7 @@ public final class ConfigBuilder {
     }
 
     private static class ConfigBuilderHolder {
-        public static final ConfigBuilder INSTANCE = new ConfigBuilder();
+        private static final ConfigBuilder INSTANCE = new ConfigBuilder();
     }
 
     public static ConfigBuilder getInstance() {

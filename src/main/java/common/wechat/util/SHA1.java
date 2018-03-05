@@ -24,9 +24,9 @@ public class SHA1 {
      * 将字节数组转换为十六进制字符串
      */
     private static String byteToStr(byte[] bytes) {
-        StringBuffer strDigest = new StringBuffer();
-        for (int i = 0; i < bytes.length; i++) {
-            strDigest.append(byteToHexStr(bytes[i]));
+        StringBuilder strDigest = new StringBuilder();
+        for (byte b : bytes) {
+            strDigest.append(byteToHexStr(b));
         }
         return strDigest.toString();
     }

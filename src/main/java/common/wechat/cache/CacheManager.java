@@ -59,7 +59,9 @@ public final class CacheManager {
     }
 
     public void setValue(String key, String value) {
-        setValue(key, value, 3600);
+        if (getJedis() != null) {
+            getJedis().set(key, value);
+        }
     }
 
     public void setValue(String key, String value, int secondsToLive) {
