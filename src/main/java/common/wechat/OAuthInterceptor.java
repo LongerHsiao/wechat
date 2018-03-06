@@ -3,24 +3,34 @@ package common.wechat;
 import common.tools.JsonUtil;
 import common.tools.StringUtil;
 import common.webtools.ResponseResult;
-import org.springframework.beans.factory.annotation.Value;
+import common.wechat.util.ConfigBuilder;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import java.util.Properties;
 
 /**
  * @author LongerHsiao
  * @date 2017-11-2
  */
 public class OAuthInterceptor implements HandlerInterceptor {
-    @Value("${state}")
-    private String state;
+    private static String state;
+    private static String redirectHost;
 
-    @Value("${redirectHost}")
-    private String redirectHost;
+    static {
+        Properties prop = ConfigBuilder.getInstance().init(WeChatPropertiesFile.filename);
+        if (prop == null) {
+            throw new NullPointerException("<<======the wechat.properties file not found");
+        }
+        state = prop.getProperty("state");
+        redirectHost = prop.getProperty("redirectHost");
+        if (StringUtil.isEmpty(redirectHost)) {
+            throw new IllegalArgumentException("<<======redirectHost could not be null");
+        }
+    }
 
     /**
      * @api OAuthInterceptor 1、网页授权拦截器
